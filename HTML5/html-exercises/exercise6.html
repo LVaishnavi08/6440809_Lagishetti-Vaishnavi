@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 6 - Feedback</title>
+</head>
+<body>
+  <h2>Exercise 6 - Feedback</h2>
+  Phone: <input type="text" onblur="validatePhone(this)">
+  <br><br>
+  Select Event:
+  <select onchange="showFee(this)">
+    <option value="">--Select--</option>
+    <option value="music">Music - $10</option>
+    <option value="art">Art - $5</option>
+  </select>
+  <p id="feeDisplay"></p>
+  <button onclick="alert('Feedback Submitted')">Submit</button><br><br>
+  <img src="event2.jpg" width="100" ondblclick="this.style.width='300px'"><br><br>
+  Feedback: <textarea onkeyup="countChars(this)"></textarea>
+  <p id="charCount">Characters: 0</p>
+
+  <script>
+    function validatePhone(input) {
+      if (!/^[0-9]{10}$/.test(input.value)) {
+        alert("Invalid phone number!");
+      }
+    }
+    function showFee(select) {
+      document.getElementById("feeDisplay").textContent = "Fee: " + select.options[select.selectedIndex].text;
+    }
+    function countChars(textarea) {
+      document.getElementById("charCount").textContent = "Characters: " + textarea.value.length;
+    }
+  </script>
+</body>
+</html>
